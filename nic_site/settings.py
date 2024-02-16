@@ -139,6 +139,6 @@ EMAIL_PORT=465
 EMAIL_HOST_USER="alyauoverasyl@gmail.com"
 EMAIL_HOST_PASSWORD="rrxu fzmh hnrp mzoe"
 EMAIL_USE_TLS = True
-# EMAIL_USE_SSL = False
+EMAIL_USE_SSL = False
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
