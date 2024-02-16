@@ -1,0 +1,1 @@
+web: gunicorn 'nic_site.wsgi'
