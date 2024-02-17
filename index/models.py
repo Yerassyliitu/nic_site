@@ -80,6 +80,7 @@ class Application(models.Model):
     letter = models.TextField()
     division = models.ForeignKey('Division', on_delete=models.CASCADE)
     portfolio_link = models.TextField()
+    university = models.ForeignKey('University', on_delete=models.CASCADE, null=True, blank=True)
     status = models.CharField(max_length=255, default="unchecked")  # accepted, rejected
 
 
@@ -94,3 +95,8 @@ class Division(models.Model):
         return self.title
 
 
+class University(models.Model):
+    title = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.title
