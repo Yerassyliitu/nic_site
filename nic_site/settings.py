@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'rest_framework',
     'corsheaders',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -85,12 +86,24 @@ WSGI_APPLICATION = 'nic_site.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
+    'default': {
+
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
+        'NAME': 'railway',
+
+        'USER': 'postgres',
+
+        'PASSWORD': '43FggC*231Ade5DEgc*dD-E1BGe-BeBE',
+
+        'HOST': 'viaduct.proxy.rlwy.net',
+
+        'PORT': '20581',
+
+    }
+
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -129,6 +142,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 # Default primary key field type

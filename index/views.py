@@ -1,7 +1,9 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.http import JsonResponse
+from drf_yasg.utils import swagger_auto_schema
 from rest_framework import generics
+from rest_framework.decorators import api_view
 
 from index.models import Application
 from index.serializers import ApplicationSerializer
@@ -11,7 +13,8 @@ class ApplicationListCreate(generics.ListCreateAPIView):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
 
-
+@api_view(['POST'])
+@swagger_auto_schema(operation_summary="Отправить письмо о принятии")
 def send_acceptance_email_view(request, application_id):
     try:
         application = Application.objects.get(id=application_id)
@@ -30,6 +33,8 @@ def send_acceptance_email_view(request, application_id):
         return JsonResponse({'error': str(e)}, status=500)
 
 
+@api_view(['POST'])
+@swagger_auto_schema(operation_summary="Отправить письмо о reject")
 def send_rejection_email_view(request, application_id):
     try:
         application = Application.objects.get(id=application_id)
