@@ -77,7 +77,7 @@ class Application(models.Model):
     lastname = models.CharField(max_length=255)
     phone = models.CharField(max_length=255, null=True, blank=True)
     email = models.EmailField()
-    letter = models.TextField()
+    letter = models.FileField(null=True, blank=True)
     division = models.ForeignKey('Division', on_delete=models.CASCADE)
     portfolio_link = models.TextField()
     university = models.ForeignKey('University', on_delete=models.CASCADE, null=True, blank=True)

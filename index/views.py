@@ -7,11 +7,13 @@ from rest_framework.decorators import api_view
 
 from index.models import Application
 from index.serializers import ApplicationSerializer
-
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
 
 class ApplicationListCreate(generics.ListCreateAPIView):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+    parser_classes = (FormParser, MultiPartParser)
+
 
 @api_view(['POST'])
 @swagger_auto_schema(operation_summary="Отправить письмо о принятии")

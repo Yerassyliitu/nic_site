@@ -13,3 +13,9 @@ class ApplicationSerializer(serializers.ModelSerializer):
             data['id'] = instance.id
             data['status'] = instance.status
         return data
+
+    def get_field_info(self, field):
+        field_info = super().get_field_info(field)
+        if isinstance(field, serializers.FileField):
+            field_info['type'] = 'file'
+        return field_info
