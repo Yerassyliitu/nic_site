@@ -10,7 +10,7 @@ schema_view = get_schema_view(
       title="Your API Title",
       default_version="v1",
       description="Your API description",
-      # url="https://book-production-ce5d.up.railway.app/api/code",
+      url="https://nicsite-production.up.railway.app/api",
       contact=openapi.Contact(email="contact@example.com"),
       license=openapi.License(name="MIT License"),
    ),
